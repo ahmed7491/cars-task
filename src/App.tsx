@@ -1,26 +1,69 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+
+interface CarModel {
+  id: number;
+  name: string;
+}
+
+const futureCars: CarModel[] = [
+  {
+    id: 1,
+    name: 'Volkswagen'
+  },
+  {
+    id: 2,
+    name: 'BMW'
+  },
+  {
+    id: 3,
+    name: 'Toyota' 
+  },
+  {
+    id: 4,
+    name: 'Nissan'
+  },
+  {
+    id: 5,
+    name: 'General Motors'
+  },
+  {
+    id: 6,
+    name: 'Hyundai'
+  },
+  {
+    id: 7,
+    name: 'Peugeot'
+  },
+  {
+    id: 8,
+    name: 'Kia'
+  },
+  {
+    id: 9,
+    name: 'Volvo'
+  },
+  {
+    id: 10,
+    name: 'Mazda'
+  }
+]
+
+
 function App() {
+
   return (
     <div className="App">
+
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>Future Cars</h2>
       </header>
+     
     </div>
   );
 }
 
 export default App;
+
+
