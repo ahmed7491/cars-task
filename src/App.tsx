@@ -53,6 +53,7 @@ const futureCars: CarModel[] = [
 function App() {
   const [data, setData] = useState<CarModel[]>(futureCars);
   const [selectedCarsId, setSelectedCarsId] = useState<string[]>([]);
+  const [isChanged, setChanged] = useState(false);
 
   const handleChange = (event: any) => {
     let updatedList = [...selectedCarsId];
@@ -62,11 +63,17 @@ function App() {
       updatedList.splice(selectedCarsId.indexOf(event.target.value), 1);
     }
     setSelectedCarsId(updatedList);
+    if (updatedList.length) {
+      setChanged(true);
+    } else {
+      setChanged(false);
+    }
   };
 
   const handleReset = () => {
     setSelectedCarsId([]);
     setData(futureCars);
+    setChanged(false);
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -82,6 +89,7 @@ function App() {
     const sortedData = [...sortedSelectedCars, ...filterdFutureCars];
 
     setData(sortedData);
+    setChanged(false);
   };
 
   return (
@@ -95,9 +103,7 @@ function App() {
               </button>
               <h2>Future Cars</h2>
               <button
-                className={
-                  "btn " + (!(selectedCarsId.length > 0) && " disapear")
-                }
+                className={"btn " + (!isChanged && " disapear")}
                 type="submit"
               >
                 applyChanges
